@@ -26,6 +26,22 @@ Body: The class body is surrounded by braces, { }.
         System.out.println("Height of b2 : "+b2.height);
         System.out.println("Weight of b2 : "+b2.weight);
 
+        Box b3 = new Box(10, 20);
+        Box b4 = new Box(30, 40);
+        Box b5 = b3;
+        System.out.println("Height and weight total : "+b3.totalHeightWeight());
+        System.out.println("Height and weight total : "+b4.totalHeightWeight());
+
+        increamentInHeightWeight(b3);
+        //Change in b3 will affect b5 also
+        System.out.println("height b5 : "+b5.height);
+        System.out.println("weight b5 : "+b5.weight);
+
+    }
+
+    public static void increamentInHeightWeight(Box b) {
+        b.height = b.height + 1;
+        b.weight = b.weight + 1;
     }
 }
 
@@ -36,5 +52,9 @@ class Box {
     Box(int height, int weight) {
         this.height = height;
         this.weight = weight;
+    }
+
+    public int totalHeightWeight() {
+        return this.height + this.weight;
     }
 }
